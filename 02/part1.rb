@@ -28,12 +28,6 @@ def getScore(symbols)
     return symbolScore + resultScore
 end
 
-symbolList = File
-    .read("input.txt")
-    .split("\n")
-    .map { |line| line.split(" ") }
-
-score = symbolList
-    .reduce(0) { |score, symbols| score + getScore(symbols) }
-
+symbolList = File.readlines("input.txt").map { |line| line.split(" ") }
+score = symbolList.reduce(0) { |score, symbols| score + getScore(symbols) }
 print score

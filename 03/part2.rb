@@ -4,11 +4,10 @@
 # print "A".ord # 65
 
 sum = File
-    .read("input.txt")
-    .split("\n")
-    .each_slice(3).to_a
+    .readlines("input.txt")
+    .each_slice(3)
     .map { |chunk| chunk
-        .map {|str| str.chars.to_a.uniq}
+        .map {|str| str.chars.uniq}
         .reduce { |a, b| a & b }
     }
     .map(&:first)
