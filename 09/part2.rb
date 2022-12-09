@@ -26,7 +26,7 @@ ops = File
                 if magnitude == 2 then
                     knots[idxB] += (knotA - knotB) / 2
                 elsif magnitude > 2 then
-                    diff = (knotA - knotB).map { |x| (x > 1 or x < 1) ? x / 2 : x }
+                    diff = (knotA - knotB).map { |x| x.abs > 1 ? x / 2 : x }
                     knots[idxB] += diff
                 end
             }

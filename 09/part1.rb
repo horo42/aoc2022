@@ -22,7 +22,7 @@ ops = File
             if magnitude == 2 then
                 tail += (head - tail) / 2
             elsif magnitude > 2 then
-                diff = (head - tail).map { |x| (x > 1 or x < 1) ? x / 2 : x }
+                diff = (head - tail).map { |x| x.abs > 1 ? x / 2 : x }
                 tail += diff
             end
             visitedCoords.push(tail)
